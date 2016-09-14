@@ -19,7 +19,7 @@ In the [processed_data folder](/processed_data), you will find the results from 
 **<...>.dmr**
 These files contain the output from DSS.
 
-**union_dmr_meth_levels.csv**
+[union_dmr_meth_levels.csv](/processed_data/union_dmr_meth_levels.csv)
 Comma seperated values file containing mCG/CG for each DMR for all samples.
 
 ### Figures
