@@ -5,7 +5,6 @@ Comparative DNA methylation analysis of neural rosettes
 The aim of this analysis was to characterize the DNA methylation patterns of neural rosette cells (NR) by comparing levels of DNA methylation (mC) with other neural progenitor cells including neural epithelial (NE), early radial glial (ERG) from [Ziller et. al. 2014](http://www.nature.com/nature/journal/v518/n7539/abs/nature13990.html) and neural progenitor cells (NPC) from [Xie et. al. 2013](http://www.sciencedirect.com/science/article/pii/S0092867413004649).
 
 ### Methods
-
 methylC-seq reads were adapter trimmed using using the bbduk algorithm in BBMap and aligned to hg19 and methylation quantified using [BSeeker2](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-774) and [Bowtie2](http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1923.html) using the end-to-end mode. 
  
 To identify differentially methylated regions (DMRs), CG dinucleotide data for each strand were merged with differential regions identified using [DSS](http://nar.oxfordjournals.org/content/early/2015/07/15/nar.gkv715.full) with detection p-values <0.01, delta-mC > 0.2, number of CG's >= 3, window size > 50 and merging of DMRs with < 100 bases between them. Samples with replicates were merged before calling DMRs. DMRs were calculated for all pairwise comparisons with the union of all DMRs being used for downstream comparative analyses. To visualise differences in mC between cell types, mCG/CG was calculated for the union set of all DMRs that had coverage in all samples. 
@@ -47,5 +46,5 @@ Browser files of cytosine coverage and mC levels.
 Bed file containing union DMRs.
 
 ### Analysis scripts
-Most scripts used in this analysis can be found in the [analysis_scripts](/analysis_scrpits) folder.
+Most scripts used in this analysis can be found in the [analysis_scripts](/analysis_scripts) folder.
 
