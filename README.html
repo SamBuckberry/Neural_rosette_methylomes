@@ -102,7 +102,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Comparative DNA methylation analysis of neural rosettes</h1>
 <h4 class="author"><em>Sam Buckberry</em></h4>
-<h4 class="date"><em>13 September, 2016</em></h4>
+<h4 class="date"><em>14 September, 2016</em></h4>
 
 </div>
 
@@ -114,16 +114,16 @@ $(document).ready(function () {
 <div id="methods" class="section level3">
 <h3>Methods</h3>
 <p>methylC-seq reads were adapter trimmed using using the bbduk algorithm in BBMap and aligned to hg19 and methylation quantified using <a href="http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-774">BSeeker2</a> and <a href="http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1923.html">Bowtie2</a> using the end-to-end mode.</p>
-<p>To identify differentially methylated regions (DMRs), CG dinucleotide data for each strand were merged with differential regions identified using <a href="http://nar.oxfordjournals.org/content/early/2015/07/15/nar.gkv715.full">DSS</a> with detection p-values &lt;0.01, delta-mC &gt; 0.2, number of CG’s &gt;= 3, window size &gt; 50 and merging of DMRs with &lt; 100 bases between them. Samples with replicates were merged before calling DMRs. DMRs were calculated for all pairwise comparisons with the union of all DMRs being used for downstream comparative analyses.</p>
+<p>To identify differentially methylated regions (DMRs), CG dinucleotide data for each strand were merged with differential regions identified using <a href="http://nar.oxfordjournals.org/content/early/2015/07/15/nar.gkv715.full">DSS</a> with detection p-values &lt;0.01, delta-mC &gt; 0.2, number of CG’s &gt;= 3, window size &gt; 50 and merging of DMRs with &lt; 100 bases between them. Samples with replicates were merged before calling DMRs. DMRs were calculated for all pairwise comparisons with the union of all DMRs being used for downstream comparative analyses. To visualise differences in mC between cell types, mCG/CG was calculated for the union set of all DMRs.</p>
 <p>UMR/LMRs identified using <a href="http://nar.oxfordjournals.org/content/41/16/e155">MethylSeekR</a> with FDR &lt; 5% for regions with &lt; 50% mCG/CG and &gt; 5 CGs per region.</p>
 </div>
-<div id="results" class="section level3">
-<h3>Results</h3>
-<p>To visualise differences in mC between cell types, mCG/CG was calculated for the union set of all DMRs.</p>
+<div id="results-files" class="section level3">
+<h3>Results files</h3>
+<p>The files containing the DMRs for each comparison can be found in the <a href="/plots">plots folder</a> in this repo.</p>
 </div>
 <div id="analysis-files" class="section level3">
 <h3>Analysis files</h3>
-<p>All analysis files are available on our server through <a href="http://cpebrazor.ivec.org/public/listerlab/sam/hawkins_project/">this link</a>. Please download these as soon as possible and keep them archived in a secure place (at least until the data are made public).</p>
+<p>All large analysis files are available on our server through <a href="http://cpebrazor.ivec.org/public/listerlab/sam/hawkins_project/">this link</a>. Please download these as soon as possible and keep them archived in a secure place (at least until the data are made public).</p>
 <p>Here is a brief description of the files:</p>
 <p><strong>&lt;…&gt;.GCmap.gz</strong> These are the output files from BSSeeker2 with the read counts for C and T bases and the mC level.</p>
 <p><strong>&lt;…&gt;.CGmap_aggregated.tsv.gz</strong> These files contain the C and T counts for each position after merging stranded CG dinucleotide data.</p>

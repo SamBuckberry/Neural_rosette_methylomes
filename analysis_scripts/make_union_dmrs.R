@@ -4,6 +4,7 @@ library(magrittr)
 library(IRanges)
 library(stringr)
 library(pheatmap)
+library(ggplot2)
 
 # Load data ---------------------------------------------------------------
 
@@ -111,14 +112,44 @@ all(as.character(erg$dmr) == as.character(nr$dmr))
 all(as.character(nr$dmr) == as.character(npc$dmr))
 all(as.character(erg$dmr) == as.character(npc$dmr))
 
-all_dmr_levels <- data.frame(row.names = erg$dmr, erg=erg$mCG, nr=nr$mCG,
-                             ne=ne$mCG, npc=npc$mCG)
+all_dmr_levels <- data.frame(row.names = erg$dmr, NR=nr$mCG, ERG=erg$mCG, 
+                             NE=ne$mCG, NPC=npc$mCG)
 
 write.csv(all_dmr_levels, file = "processed_data/union_dmr_meth_levels.csv",
           quote = FALSE, row.names = TRUE)
 
-pheatmap::pheatmap(as.matrix(all_dmr_levels), kmeans_k = 1000, 
+pdf("plots/dmr_heatmap.pdf")
+pheatmap(as.matrix(all_dmr_levels), kmeans_k = 2000, 
                    show_rownames = FALSE)
+dev.off()
 
+png("plots/dmr_heatmap.png", width = 7, height = 7, res = 300, units = 'in')
+pheatmap(as.matrix(all_dmr_levels), kmeans_k = 2000, 
+         show_rownames = FALSE)
+dev.off()
+
+# Violin plot mC data
+
+int_melt <- melt(all_dmr_levels)
+
+pdf(file = "plots/dmr_violin_plot.pdf", height = 4)
+gp <- ggplot(int_melt, aes(y=value, x=variable)) + 
+        geom_violin(scale = "area", alpha=0.3, fill='black') + 
+        geom_boxplot(width=.1, notch = TRUE,
+                     outlier.size = 0, outlier.shape = 0, outlier.stroke = NA) +
+        ylab("DMR mCG/CG") +
+        xlab("")
+gp
+dev.off()
+
+png(file = "plots/dmr_violin_plot.png", height = 4, width = 7, units = 'in', res = 300)
+gp <- ggplot(int_melt, aes(y=value, x=variable)) + 
+        geom_violin(scale = "area", alpha=0.3, fill='black') + 
+        geom_boxplot(width=.1, notch = TRUE,
+                     outlier.size = 0, outlier.shape = 0, outlier.stroke = NA) +
+        ylab("DMR mCG/CG") +
+        xlab("")
+gp
+dev.off()
 
 

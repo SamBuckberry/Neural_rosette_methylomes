@@ -19,18 +19,14 @@ To identify differentially methylated regions (DMRs), CG dinucleotide data for e
 
 UMR/LMRs identified using [MethylSeekR](http://nar.oxfordjournals.org/content/41/16/e155 ) with FDR < 5% for regions with < 50% mCG/CG and > 5 CGs per region.
 
-### Results
+### Results files 
 
-
-
-
-
-
+The files containing the DMRs for each comparison can be found in the [plots folder](/plots) in this repo.
 
 
 ### Analysis files
 
-All analysis files are available on our server through [this link](http://cpebrazor.ivec.org/public/listerlab/sam/hawkins_project/). Please download these as soon as possible and keep them archived in a secure place (at least until the data are made public). 
+All large analysis files are available on our server through [this link](http://cpebrazor.ivec.org/public/listerlab/sam/hawkins_project/). Please download these as soon as possible and keep them archived in a secure place (at least until the data are made public). 
 
 Here is a brief description of the files:
 
