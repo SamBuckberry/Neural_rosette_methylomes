@@ -1,11 +1,4 @@
----
-title: "Comparative DNA methylation analysis of neural rosettes"
-author: "Sam Buckberry"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-output:
-        html_document:
-                theme: readable
-                highlight: tango
+Comparative DNA methylation analysis of neural rosettes
 ---
 
 ### Background
@@ -15,14 +8,25 @@ The aim of this analysis was to characterize the DNA methylation patterns of neu
 
 methylC-seq reads were adapter trimmed using using the bbduk algorithm in BBMap and aligned to hg19 and methylation quantified using [BSeeker2](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-774) and [Bowtie2](http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1923.html) using the end-to-end mode. 
  
-To identify differentially methylated regions (DMRs), CG dinucleotide data for each strand were merged with differential regions identified using [DSS](http://nar.oxfordjournals.org/content/early/2015/07/15/nar.gkv715.full) with detection p-values <0.01, delta-mC > 0.2, number of CG's >= 3, window size > 50 and merging of DMRs with < 100 bases between them. Samples with replicates were merged before calling DMRs. DMRs were calculated for all pairwise comparisons with the union of all DMRs being used for downstream comparative analyses. To visualise differences in mC between cell types, mCG/CG was calculated for the union set of all DMRs. 
+To identify differentially methylated regions (DMRs), CG dinucleotide data for each strand were merged with differential regions identified using [DSS](http://nar.oxfordjournals.org/content/early/2015/07/15/nar.gkv715.full) with detection p-values <0.01, delta-mC > 0.2, number of CG's >= 3, window size > 50 and merging of DMRs with < 100 bases between them. Samples with replicates were merged before calling DMRs. DMRs were calculated for all pairwise comparisons with the union of all DMRs being used for downstream comparative analyses. To visualise differences in mC between cell types, mCG/CG was calculated for the union set of all DMRs that had coverage in all samples. 
 
 UMR/LMRs identified using [MethylSeekR](http://nar.oxfordjournals.org/content/41/16/e155 ) with FDR < 5% for regions with < 50% mCG/CG and > 5 CGs per region.
 
 ### Results files 
 
-The files containing the DMRs for each comparison can be found in the [plots folder](/plots) in this repo.
+In the [processed_data folder](/processed_data), you will find the results from the differential methylation analysis.
 
+**<...>.dmr**
+These files contain the output from DSS.
+
+**union_dmr_meth_levels.csv**
+Comma seperated values file containing mCG/CG for each DMR for all samples.
+
+### Figures
+
+In the [plots folder](/plots) you will find the heatmaps and violin plots that were generated using the data in the summarised `union_dmr_meth_levels.csv` file in the [processed_data](/processed_data) folder.
+
+The figures were generated using the [plot_dmrs.R](/analysis_scripts/plot_dmrs.R) script. If you need to modify the figures, you should only need to adjust the parameters in this script. It outputs both .png and .pdf files for both plots.
 
 ### Analysis files
 
@@ -45,7 +49,6 @@ Browser files of cytosine coverage and mC levels.
 **all_cells_union.bed**
 Bed file containing union DMRs.
 
-**union_dmr_meth_levels.csv**
-Comma seperated values file containing mCG/CG for each DMR for all samples.
-
+### Analysis scripts
+Most scripts used in this analysis can be found in the [analysis_scripts](/analysis_scrpits) folder.
 
