@@ -1,0 +1,55 @@
+---
+title: "Comparative DNA methylation analysis of neural rosettes"
+author: "Sam Buckberry"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+        html_document:
+                theme: readable
+                highlight: tango
+---
+
+### Background
+The aim of this analysis was to characterize the DNA methylation patterns of neural rosette cells (NR) by comparing levels of DNA methylation (mC) with other neural progenitor cells including neural epithelial (NE), early radial glial (ERG) from [Ziller et. al. 2014](http://www.nature.com/nature/journal/v518/n7539/abs/nature13990.html) and neural progenitor cells (NPC) from [Xie et. al. 2013](http://www.sciencedirect.com/science/article/pii/S0092867413004649).
+
+### Methods
+
+methylC-seq reads were adapter trimmed using using the bbduk algorithm in BBMap and aligned to hg19 and methylation quantified using [BSeeker2](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-774) and [Bowtie2](http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1923.html) using the end-to-end mode. 
+ 
+To identify differentially methylated regions (DMRs), CG dinucleotide data for each strand were merged with differential regions identified using [DSS](http://nar.oxfordjournals.org/content/early/2015/07/15/nar.gkv715.full) with detection p-values <0.01, delta-mC > 0.2, number of CG's >= 3, window size > 50 and merging of DMRs with < 100 bases between them. Samples with replicates were merged before calling DMRs. DMRs were calculated for all pairwise comparisons with the union of all DMRs being used for downstream comparative analyses. To visualise differences in mC between cell types, mCG/CG was calculated for the union set of all DMRs. 
+
+UMR/LMRs identified using [MethylSeekR](http://nar.oxfordjournals.org/content/41/16/e155 ) with FDR < 5% for regions with < 50% mCG/CG and > 5 CGs per region.
+
+### Results
+
+
+
+
+
+
+
+
+### Analysis files
+
+All analysis files are available on our server through [this link](http://cpebrazor.ivec.org/public/listerlab/sam/hawkins_project/). Please download these as soon as possible and keep them archived in a secure place (at least until the data are made public). 
+
+Here is a brief description of the files:
+
+**<...>.GCmap.gz**
+These are the output files from BSSeeker2 with the read counts for C and T bases and the mC level.
+
+**<...>.CGmap_aggregated.tsv.gz**
+These files contain the C and T counts for each position after merging stranded CG dinucleotide data.
+
+**<...>.dmr**
+These files contain the output from DSS.
+
+**<...>.bigwig**
+Browser files of cytosine coverage and mC levels.
+
+**all_cells_union.bed**
+Bed file containing union DMRs.
+
+**union_dmr_meth_levels.csv**
+Comma seperated values file containing mCG/CG for each DMR for all samples.
+
+
