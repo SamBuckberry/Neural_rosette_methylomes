@@ -40,9 +40,6 @@ These are the output files from BSSeeker2 with the read counts for C and T bases
 **<...>.CGmap_aggregated.tsv.gz**
 These files contain the C and T counts for each position after merging stranded CG dinucleotide data.
 
-**<...>.dmr**
-These files contain the output from DSS.
-
 **<...>.bigwig**
 Browser files of cytosine coverage and mC levels.
 

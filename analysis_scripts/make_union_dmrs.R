@@ -3,8 +3,7 @@ library(GenomicRanges)
 library(magrittr)
 library(IRanges)
 library(stringr)
-library(pheatmap)
-library(ggplot2)
+
 
 # Load data ---------------------------------------------------------------
 
